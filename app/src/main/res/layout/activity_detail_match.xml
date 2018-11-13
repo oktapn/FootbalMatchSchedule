@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		tools:context=".ui.detail.DetailMatchActivity">
+	<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingLeft="10dp"
+			android:paddingRight="10dp"
+			android:orientation="vertical">
+<TextView
+		android:id="@+id/TVtgl"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:textColor="@color/colorPrimary"
+		android:layout_margin="10dp"/>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:gravity="center"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<ImageView
+					android:id="@+id/Logo1"
+					android:layout_width="0dp"
+					android:layout_weight="0.2"
+					android:layout_height="wrap_content"/>
+			<TextView
+					android:id="@+id/Dscore1"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:textStyle="bold"
+					android:textSize="20sp"
+					android:layout_margin="10dp"
+					tools:text="0"
+					android:layout_weight="0.1"/>
+			<TextView
+					android:layout_width="0dp"
+					android:layout_weight="0.1"
+					android:text="VS"
+					android:textColor="@color/colorPrimary"
+					
+					android:gravity="center"
+					android:layout_height="wrap_content"/>
+			<TextView
+					android:id="@+id/Dscore2"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:textStyle="bold"
+					android:textSize="20sp"
+					android:layout_margin="10dp"
+					tools:text="0"
+					android:layout_weight="0.1"/>
+			<ImageView
+					android:id="@+id/Logo2"
+					android:layout_width="0dp"
+					android:layout_weight="0.2"
+					android:layout_height="wrap_content"/>
+	</LinearLayout>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="10dp"
+			android:orientation="horizontal">
+		
+		<TextView
+				android:id="@+id/nameHome"
+				android:layout_width="0dp"
+				android:layout_weight="0.5"
+				android:textColor="@color/colorPrimary"
+				android:gravity="left"
+				android:paddingLeft="10dp"
+				android:layout_height="wrap_content"/>
+		<TextView
+				android:id="@+id/nameAway"
+				android:layout_width="0dp"
+				android:layout_weight="0.5"
+				android:textColor="@color/colorPrimary"
+				android:gravity="right"
+				android:paddingRight="10dp"
+				android:layout_height="wrap_content"/>
+		
+	</LinearLayout>
+	<View
+			android:layout_width="match_parent"
+			android:layout_height="2dp"
+			android:background="@color/colorPrimaryDark"/>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="10dp"
+			android:orientation="horizontal">
+		
+		<TextView
+				android:id="@+id/goalHome"
+				android:layout_width="0dp"
+				android:gravity="left"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		<TextView
+				android:layout_width="0dp"
+				android:layout_weight="0.5"
+				android:gravity="center"
+				android:textColor="@color/colorPrimary"
+				android:layout_height="wrap_content"
+				android:text="Goals"/>
+		<TextView
+				android:id="@+id/goalAway"
+				android:layout_width="0dp"
+				android:gravity="right"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		
+	</LinearLayout>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="10dp"
+			android:orientation="horizontal">
+		
+		<TextView
+				android:id="@+id/shotsHome"
+				android:layout_width="0dp"
+				android:gravity="left"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		<TextView
+				android:layout_width="0dp"
+				android:layout_weight="0.5"
+				android:gravity="center"
+				android:layout_height="wrap_content"
+				android:textColor="@color/colorPrimary"
+				android:text="Shots"/>
+		<TextView
+				android:id="@+id/shotsAway"
+				android:layout_width="0dp"
+				android:gravity="right"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		
+	</LinearLayout>
+	<View
+			android:layout_width="match_parent"
+			android:layout_height="2dp"
+			android:background="@color/colorPrimaryDark"/>
+	
+	<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:layout_margin="10dp"
+			android:text="Lineups"/>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="10dp"
+			android:orientation="horizontal">
+		
+		<TextView
+				android:id="@+id/goalkeeperHome"
+				android:layout_width="0dp"
+				android:gravity="left"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		<TextView
+				android:layout_width="0dp"
+				android:layout_weight="0.5"
+				android:gravity="center"
+				android:textColor="@color/colorPrimary"
+				android:layout_height="wrap_content"
+				android:text="GoalKeeper"/>
+		<TextView
+				android:id="@+id/goalKeeperAway"
+				android:layout_width="0dp"
+				android:gravity="right"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		
+	</LinearLayout>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="10dp"
+			android:orientation="horizontal">
+		
+		<TextView
+				android:id="@+id/defenseHome"
+				android:layout_width="0dp"
+				android:gravity="left"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		<TextView
+				android:layout_width="0dp"
+				android:layout_weight="0.5"
+				android:gravity="center"
+				android:textColor="@color/colorPrimary"
+				android:layout_height="wrap_content"
+				android:text="Defense"/>
+		<TextView
+				android:id="@+id/defenseAway"
+				android:layout_width="0dp"
+				android:gravity="right"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		
+	</LinearLayout>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="10dp"
+			android:orientation="horizontal">
+		
+		<TextView
+				android:id="@+id/midfieldHome"
+				android:layout_width="0dp"
+				android:gravity="left"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		<TextView
+				android:layout_width="0dp"
+				android:layout_weight="0.5"
+				android:gravity="center"
+				android:textColor="@color/colorPrimary"
+				android:layout_height="wrap_content"
+				android:text="Midfield"/>
+		<TextView
+				android:id="@+id/midfieldAway"
+				android:layout_width="0dp"
+				android:gravity="right"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		
+	</LinearLayout>
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="10dp"
+			android:orientation="horizontal">
+		
+		<TextView
+				android:id="@+id/forwardHome"
+				android:layout_width="0dp"
+				android:gravity="left"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		<TextView
+				android:layout_width="0dp"
+				android:layout_weight="0.5"
+				android:gravity="center"
+				android:textColor="@color/colorPrimary"
+				android:layout_height="wrap_content"
+				android:text="Forward"/>
+		<TextView
+				android:id="@+id/forwardAway"
+				android:layout_width="0dp"
+				android:gravity="right"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		
+	</LinearLayout>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="10dp"
+			android:orientation="horizontal">
+		
+		<TextView
+				android:id="@+id/subtitutesHome"
+				android:layout_width="0dp"
+				android:gravity="left"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		<TextView
+				android:layout_width="0dp"
+				android:layout_weight="0.5"
+				android:gravity="center"
+				android:textColor="@color/colorPrimary"
+				android:layout_height="wrap_content"
+				android:text="Subtitutes"/>
+		<TextView
+				android:id="@+id/subtitutesAway"
+				android:layout_width="0dp"
+				android:gravity="right"
+				android:layout_weight="0.5"
+				android:layout_height="wrap_content"/>
+		
+	</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

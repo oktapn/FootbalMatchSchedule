@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="16dp">
+
+    <TextView
+            android:id="@+id/TVtglitem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Sat,22 Sept 2018"
+            android:layout_margin="10dp"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+                android:id="@+id/name1"
+                android:layout_width="0dp"
+                tools:text="Barcelona FC"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"/>
+
+        <TextView
+                android:id="@+id/score1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_margin="10dp"
+                tools:text="0"
+                android:layout_weight="0.1"/>
+
+        <TextView
+                android:id="@+id/TVvs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:layout_weight="0.1"
+                android:gravity="center"
+                tools:text="VS"/>
+
+        <TextView
+                android:id="@+id/score2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:layout_weight="0.1"
+                android:textStyle="bold"
+                android:gravity="center"
+                tools:text="0"/>
+
+        <TextView
+                android:id="@+id/name2"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                tools:text="Barcelona FC"
+                android:layout_weight="0.2"/>
+    </LinearLayout>
+
+
+</LinearLayout>
