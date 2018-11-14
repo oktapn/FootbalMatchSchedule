@@ -1,4 +1,4 @@
-package com.example.okta.footballmatchschedule.ui.pastleague
+package com.example.okta.footballmatchschedule.ui.lastleague
 
 import com.example.okta.footballmatchschedule.model.eventpastleague.EventPastLeagueResponse
 

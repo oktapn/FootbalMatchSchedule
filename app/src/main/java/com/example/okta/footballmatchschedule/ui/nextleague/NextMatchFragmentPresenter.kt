@@ -7,11 +7,7 @@ import rx.subscriptions.CompositeSubscription
 
 class NextMatchFragmentPresenter(private val service : Service, private val view: NextMatchFragmentView) {
 
-    private val subscriptions: CompositeSubscription
-
-    init {
-        this.subscriptions = CompositeSubscription()
-    }
+    private val subscriptions= CompositeSubscription()
 
     fun getid(id: String){
         view.showWait()

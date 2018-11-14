@@ -29,7 +29,7 @@ class NetworkError(val error: Throwable?) : Throwable(error) {
 
                 val headers = response.headers().toMultimap()
                 if (headers.containsKey(ERROR_MESSAGE_HEADER))
-                    return headers[ERROR_MESSAGE_HEADER]!!.get(0)
+                    return headers[ERROR_MESSAGE_HEADER]?.get(0).toString()
             }
 
             return DEFAULT_ERROR_MESSAGE
@@ -37,8 +37,8 @@ class NetworkError(val error: Throwable?) : Throwable(error) {
 
     protected fun getJsonStringFromResponse(response: retrofit2.Response<*>): String? {
         try {
-            val jsonString = response.errorBody().string()
-            val errorResponse = Gson().fromJson<Response>(jsonString, Response::class.java!!)
+            val jsonString = response.errorBody()?.string()
+            val errorResponse = Gson().fromJson<Response>(jsonString, Response::class.java)
             return errorResponse.status
         } catch (e: Exception) {
             return null
@@ -52,7 +52,7 @@ class NetworkError(val error: Throwable?) : Throwable(error) {
 
         val that = o as NetworkError?
 
-        return if (error != null) error == that!!.error else that!!.error == null
+        return if (error != null) error == that?.error else that?.error == null
 
     }
 
@@ -61,8 +61,8 @@ class NetworkError(val error: Throwable?) : Throwable(error) {
     }
 
     companion object {
-        val DEFAULT_ERROR_MESSAGE = "Something went wrong! Please try again."
-        val NETWORK_ERROR_MESSAGE = "No Internet Connection!"
-        private val ERROR_MESSAGE_HEADER = "Error-Message"
+        private const val DEFAULT_ERROR_MESSAGE = "Something went wrong! Please try again."
+        private const val NETWORK_ERROR_MESSAGE = "No Internet Connection!"
+        private const val ERROR_MESSAGE_HEADER = "Error-Message"
     }
 }

@@ -16,7 +16,7 @@ import javax.inject.Inject
 class DetailMatchActivity : BaseApp(), DetailMatchView {
 
     private lateinit var presenter: DetailMatchPresenter
-    internal lateinit var progress: ProgressDialog
+    private lateinit var progress: ProgressDialog
     @Inject
     lateinit var service: Service
 
@@ -31,27 +31,27 @@ class DetailMatchActivity : BaseApp(), DetailMatchView {
     }
 
     override fun getResponseEvent(detailEventResponse: DetailEventResponse) {
-        TVtgl.text = detailEventResponse.events!![0].dateEvent
-        Dscore1.text = detailEventResponse.events!![0].intHomeScore.toString()
-        Dscore2.text = detailEventResponse.events!![0].intAwayScore.toString()
-        nameHome.text = detailEventResponse.events!![0].strHomeTeam
-        nameAway.text = detailEventResponse.events!![0].strAwayTeam
-        goalHome.text = detailEventResponse.events!![0].strHomeGoalDetails.toString()
-        goalAway.text = detailEventResponse.events!![0].strAwayGoalDetails.toString()
-        shotsHome.text = detailEventResponse.events!![0].intHomeShots.toString()
-        shotsAway.text = detailEventResponse.events!![0].intAwayShots.toString()
-        goalkeeperHome.text = detailEventResponse.events!![0].strHomeLineupGoalkeeper.toString()
-        goalKeeperAway.text = detailEventResponse.events!![0].strAwayLineupGoalkeeper.toString()
-        defenseHome.text = detailEventResponse.events!![0].strHomeLineupDefense.toString()
-        defenseAway.text = detailEventResponse.events!![0].strAwayLineupDefense.toString()
-        midfieldHome.text = detailEventResponse.events!![0].strHomeLineupMidfield.toString()
-        midfieldAway.text = detailEventResponse.events!![0].strAwayLineupMidfield.toString()
-        forwardHome.text = detailEventResponse.events!![0].strHomeLineupForward.toString()
-        forwardAway.text = detailEventResponse.events!![0].strAwayLineupForward.toString()
-        subtitutesHome.text = detailEventResponse.events!![0].strHomeLineupSubstitutes.toString()
-        subtitutesAway.text = detailEventResponse.events!![0].strAwayLineupSubstitutes.toString()
-        presenter.getDetailTeamHome(detailEventResponse.events!![0].strHomeTeam!!)
-        presenter.getDetailTeamAway(detailEventResponse.events!![0].strAwayTeam!!)
+        TVtgl.text = detailEventResponse.events?.get(0)?.dateEvent ?:""
+        Dscore1.text = detailEventResponse.events?.get(0)?.intHomeScore?.toString()?:""
+        Dscore2.text = detailEventResponse.events?.get(0)?.intAwayScore?.toString()?:""
+        nameHome.text = detailEventResponse.events?.get(0)?.strHomeTeam?:""
+        nameAway.text = detailEventResponse.events?.get(0)?.strAwayTeam?:""
+        goalHome.text = detailEventResponse.events?.get(0)?.strHomeGoalDetails?.toString()?:""
+        goalAway.text = detailEventResponse.events?.get(0)?.strAwayGoalDetails?.toString()?:""
+        shotsHome.text = detailEventResponse.events?.get(0)?.intHomeShots?.toString()?:""
+        shotsAway.text = detailEventResponse.events?.get(0)?.intAwayShots?.toString()?:""
+        goalkeeperHome.text = detailEventResponse.events?.get(0)?.strHomeLineupGoalkeeper?.toString()?:""
+        goalKeeperAway.text = detailEventResponse.events?.get(0)?.strAwayLineupGoalkeeper?.toString()?:""
+        defenseHome.text = detailEventResponse.events?.get(0)?.strHomeLineupDefense?.toString()?:""
+        defenseAway.text = detailEventResponse.events?.get(0)?.strAwayLineupDefense?.toString()?:""
+        midfieldHome.text = detailEventResponse.events?.get(0)?.strHomeLineupMidfield?.toString()?:""
+        midfieldAway.text = detailEventResponse.events?.get(0)?.strAwayLineupMidfield?.toString()?:""
+        forwardHome.text = detailEventResponse.events?.get(0)?.strHomeLineupForward?.toString()?:""
+        forwardAway.text = detailEventResponse.events?.get(0)?.strAwayLineupForward?.toString()?:""
+        subtitutesHome.text = detailEventResponse.events?.get(0)?.strHomeLineupSubstitutes?.toString()?:""
+        subtitutesAway.text = detailEventResponse.events?.get(0)?.strAwayLineupSubstitutes?.toString()?:""
+        presenter.getDetailTeamHome(detailEventResponse.events?.get(0)?.strHomeTeam?:"")
+        presenter.getDetailTeamAway(detailEventResponse.events?.get(0)?.strAwayTeam?:"")
     }
 
     override fun showWait() {
@@ -65,15 +65,15 @@ class DetailMatchActivity : BaseApp(), DetailMatchView {
     }
 
     override fun onFailure(appErrorMessage: String) {
-        Toast.makeText(applicationContext, appErrorMessage, Toast.LENGTH_LONG)
+        Toast.makeText(applicationContext, appErrorMessage, Toast.LENGTH_LONG).show()
     }
 
     override fun getResponseHome(detailTeamResponse: DetailTeamResponse) {
-        Glide.with(applicationContext).load(detailTeamResponse.teams!![0].strTeamBadge).into(Logo1)
+        Glide.with(applicationContext).load(detailTeamResponse.teams?.get(0)?.strTeamBadge).into(Logo1)
     }
 
     override fun getResponseAway(detailTeamResponse: DetailTeamResponse) {
-        Glide.with(applicationContext).load(detailTeamResponse.teams!![0].strTeamBadge).into(Logo2)
+        Glide.with(applicationContext).load(detailTeamResponse.teams?.get(0)?.strTeamBadge).into(Logo2)
     }
 
 }

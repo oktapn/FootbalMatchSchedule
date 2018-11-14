@@ -41,13 +41,13 @@ dependencies {
     // RecyclerView-v7
     implementation "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
     implementation "org.jetbrains.anko:anko-recyclerview-v7-coroutines:$anko_version"
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
 
-    implementation 'io.reactivex:rxandroid:1.1.0'
-    implementation 'io.reactivex:rxjava:1.1.0'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'io.reactivex:rxjava:1.1.6'
     implementation 'com.jakewharton.rxbinding:rxbinding:0.3.0'
-    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.1.0'
     implementation 'com.google.dagger:dagger:2.5'

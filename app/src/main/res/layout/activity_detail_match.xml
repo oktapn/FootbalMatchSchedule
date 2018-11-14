@@ -2,14 +2,14 @@
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:tools="http://schemas.android.com/tools"
-		xmlns:app="http://schemas.android.com/apk/res-auto"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:orientation="vertical"
 		tools:context=".ui.detail.DetailMatchActivity">
 	<ScrollView
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			tools:ignore="UselessParent">
 	<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -33,7 +33,8 @@
 					android:id="@+id/Logo1"
 					android:layout_width="0dp"
 					android:layout_weight="0.2"
-					android:layout_height="wrap_content"/>
+					android:layout_height="wrap_content"
+					android:contentDescription="@string/todo"/>
 			<TextView
 					android:id="@+id/Dscore1"
 					android:layout_width="0dp"
@@ -47,7 +48,7 @@
 			<TextView
 					android:layout_width="0dp"
 					android:layout_weight="0.1"
-					android:text="VS"
+					android:text="@string/vs_text"
 					android:textColor="@color/colorPrimary"
 					
 					android:gravity="center"
@@ -66,7 +67,8 @@
 					android:id="@+id/Logo2"
 					android:layout_width="0dp"
 					android:layout_weight="0.2"
-					android:layout_height="wrap_content"/>
+					android:layout_height="wrap_content"
+					tools:ignore="ContentDescription"/>
 	</LinearLayout>
 	
 	<LinearLayout
@@ -80,16 +82,18 @@
 				android:layout_width="0dp"
 				android:layout_weight="0.5"
 				android:textColor="@color/colorPrimary"
-				android:gravity="left"
-				android:paddingLeft="10dp"
+				android:gravity="start"
+				android:paddingStart="10dp"
+				android:paddingEnd="10dp"
 				android:layout_height="wrap_content"/>
 		<TextView
 				android:id="@+id/nameAway"
 				android:layout_width="0dp"
 				android:layout_weight="0.5"
 				android:textColor="@color/colorPrimary"
-				android:gravity="right"
-				android:paddingRight="10dp"
+				android:gravity="end"
+				android:paddingStart="10dp"
+				android:paddingEnd="10dp"
 				android:layout_height="wrap_content"/>
 		
 	</LinearLayout>
@@ -107,7 +111,7 @@
 		<TextView
 				android:id="@+id/goalHome"
 				android:layout_width="0dp"
-				android:gravity="left"
+				android:gravity="start"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		<TextView
@@ -116,11 +120,11 @@
 				android:gravity="center"
 				android:textColor="@color/colorPrimary"
 				android:layout_height="wrap_content"
-				android:text="Goals"/>
+				android:text="@string/goals_text"/>
 		<TextView
 				android:id="@+id/goalAway"
 				android:layout_width="0dp"
-				android:gravity="right"
+				android:gravity="end"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		
@@ -135,7 +139,7 @@
 		<TextView
 				android:id="@+id/shotsHome"
 				android:layout_width="0dp"
-				android:gravity="left"
+				android:gravity="start"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		<TextView
@@ -144,11 +148,11 @@
 				android:gravity="center"
 				android:layout_height="wrap_content"
 				android:textColor="@color/colorPrimary"
-				android:text="Shots"/>
+				android:text="@string/shots_title"/>
 		<TextView
 				android:id="@+id/shotsAway"
 				android:layout_width="0dp"
-				android:gravity="right"
+				android:gravity="end"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		
@@ -163,7 +167,7 @@
 			android:layout_height="wrap_content"
 			android:gravity="center"
 			android:layout_margin="10dp"
-			android:text="Lineups"/>
+			android:text="@string/lineups_title"/>
 	
 	<LinearLayout
 			android:layout_width="match_parent"
@@ -174,7 +178,7 @@
 		<TextView
 				android:id="@+id/goalkeeperHome"
 				android:layout_width="0dp"
-				android:gravity="left"
+				android:gravity="start"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		<TextView
@@ -183,11 +187,11 @@
 				android:gravity="center"
 				android:textColor="@color/colorPrimary"
 				android:layout_height="wrap_content"
-				android:text="GoalKeeper"/>
+				android:text="@string/goalkeeper_title"/>
 		<TextView
 				android:id="@+id/goalKeeperAway"
 				android:layout_width="0dp"
-				android:gravity="right"
+				android:gravity="end"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		
@@ -202,7 +206,7 @@
 		<TextView
 				android:id="@+id/defenseHome"
 				android:layout_width="0dp"
-				android:gravity="left"
+				android:gravity="start"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		<TextView
@@ -211,11 +215,11 @@
 				android:gravity="center"
 				android:textColor="@color/colorPrimary"
 				android:layout_height="wrap_content"
-				android:text="Defense"/>
+				android:text="@string/defense_title"/>
 		<TextView
 				android:id="@+id/defenseAway"
 				android:layout_width="0dp"
-				android:gravity="right"
+				android:gravity="end"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		
@@ -230,7 +234,7 @@
 		<TextView
 				android:id="@+id/midfieldHome"
 				android:layout_width="0dp"
-				android:gravity="left"
+				android:gravity="start"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		<TextView
@@ -239,11 +243,11 @@
 				android:gravity="center"
 				android:textColor="@color/colorPrimary"
 				android:layout_height="wrap_content"
-				android:text="Midfield"/>
+				android:text="@string/midfield_title"/>
 		<TextView
 				android:id="@+id/midfieldAway"
 				android:layout_width="0dp"
-				android:gravity="right"
+				android:gravity="end"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		
@@ -257,7 +261,7 @@
 		<TextView
 				android:id="@+id/forwardHome"
 				android:layout_width="0dp"
-				android:gravity="left"
+				android:gravity="start"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		<TextView
@@ -266,11 +270,11 @@
 				android:gravity="center"
 				android:textColor="@color/colorPrimary"
 				android:layout_height="wrap_content"
-				android:text="Forward"/>
+				android:text="@string/forward_text"/>
 		<TextView
 				android:id="@+id/forwardAway"
 				android:layout_width="0dp"
-				android:gravity="right"
+				android:gravity="end"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		
@@ -285,7 +289,7 @@
 		<TextView
 				android:id="@+id/subtitutesHome"
 				android:layout_width="0dp"
-				android:gravity="left"
+				android:gravity="start"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		<TextView
@@ -294,11 +298,11 @@
 				android:gravity="center"
 				android:textColor="@color/colorPrimary"
 				android:layout_height="wrap_content"
-				android:text="Subtitutes"/>
+				android:text="@string/subtitutes_text"/>
 		<TextView
 				android:id="@+id/subtitutesAway"
 				android:layout_width="0dp"
-				android:gravity="right"
+				android:gravity="end"
 				android:layout_weight="0.5"
 				android:layout_height="wrap_content"/>
 		

@@ -2,19 +2,13 @@ package com.example.okta.footballmatchschedule.ui.detail
 
 import com.example.okta.footballmatchschedule.model.detailevent.DetailEventResponse
 import com.example.okta.footballmatchschedule.model.detailteam.DetailTeamResponse
-import com.example.okta.footballmatchschedule.model.eventnextleague.EventNextLeagueResponse
 import com.example.okta.footballmatchschedule.networking.NetworkError
 import com.example.okta.footballmatchschedule.networking.Service
-import com.example.okta.footballmatchschedule.ui.pastleague.LastMatchFragmentView
 import rx.subscriptions.CompositeSubscription
 
 class DetailMatchPresenter(private val service : Service, private val view: DetailMatchView) {
 
-    private val subscriptions: CompositeSubscription
-
-    init {
-        this.subscriptions = CompositeSubscription()
-    }
+    private val subscriptions= CompositeSubscription()
 
     fun getDetailTeamHome(team: String){
         view.showWait()

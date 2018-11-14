@@ -14,7 +14,7 @@ open class BaseAppFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val cacheFile = File(context!!.cacheDir, "responses")
+        val cacheFile = File(context?.cacheDir, "responses")
         deps = DaggerDeps.builder().networkModule(NetworkModule(cacheFile)).build()
     }
 }

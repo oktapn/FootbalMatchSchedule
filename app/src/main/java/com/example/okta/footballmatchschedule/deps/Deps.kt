@@ -5,7 +5,7 @@ import com.example.okta.footballmatchschedule.networking.NetworkModule
 import com.example.okta.footballmatchschedule.ui.detail.DetailMatchActivity
 import com.example.okta.footballmatchschedule.ui.main.MainActivity
 import com.example.okta.footballmatchschedule.ui.nextleague.NextMatchFragment
-import com.example.okta.footballmatchschedule.ui.pastleague.LastMatchFragment
+import com.example.okta.footballmatchschedule.ui.lastleague.LastMatchFragment
 import dagger.Component
 import javax.inject.Singleton
 
