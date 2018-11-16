@@ -89,8 +89,9 @@ class DetailMatchActivity : BaseApp(), DetailMatchView {
                 true
             }
             add_to_favorite -> {
-                if (isFavorite) removeFromFavorite() else addToFavorite()
-
+                if(this::teams.isInitialized) {
+                    if (isFavorite) removeFromFavorite() else addToFavorite()
+                }
                 isFavorite = !isFavorite
                 setFavorite()
 
