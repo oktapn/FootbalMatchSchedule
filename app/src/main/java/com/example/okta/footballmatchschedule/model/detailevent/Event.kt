@@ -4,109 +4,109 @@ import javax.annotation.Generated
 import com.google.gson.annotations.SerializedName
 
 @Generated("net.hexar.json2pojo")
-class Event {
+data class Event(
 
     @SerializedName("dateEvent")
-    var dateEvent: String? = null
+    var dateEvent: String? = null,
     @SerializedName("idAwayTeam")
-    var idAwayTeam: String? = null
+    var idAwayTeam: String? = null,
     @SerializedName("idEvent")
-    var idEvent: String? = null
+    var idEvent: String? = null,
     @SerializedName("idHomeTeam")
-    var idHomeTeam: String? = null
+    var idHomeTeam: String? = null,
     @SerializedName("idLeague")
-    var idLeague: String? = null
+    var idLeague: String? = null,
     @SerializedName("idSoccerXML")
-    var idSoccerXML: String? = null
+    var idSoccerXML: String? = null,
     @SerializedName("intAwayScore")
-    var intAwayScore: Any? = null
+    var intAwayScore: Any? = null,
     @SerializedName("intAwayShots")
-    var intAwayShots: Any? = null
+    var intAwayShots: Any? = null,
     @SerializedName("intHomeScore")
-    var intHomeScore: Any? = null
+    var intHomeScore: Any? = null,
     @SerializedName("intHomeShots")
-    var intHomeShots: Any? = null
+    var intHomeShots: Any? = null,
     @SerializedName("intRound")
-    var intRound: String? = null
+    var intRound: String? = null,
     @SerializedName("intSpectators")
-    var intSpectators: Any? = null
+    var intSpectators: Any? = null,
     @SerializedName("strAwayFormation")
-    var strAwayFormation: Any? = null
+    var strAwayFormation: Any? = null,
     @SerializedName("strAwayGoalDetails")
-    var strAwayGoalDetails: Any? = null
+    var strAwayGoalDetails: Any? = null,
     @SerializedName("strAwayLineupDefense")
-    var strAwayLineupDefense: Any? = null
+    var strAwayLineupDefense: Any? = null,
     @SerializedName("strAwayLineupForward")
-    var strAwayLineupForward: Any? = null
+    var strAwayLineupForward: Any? = null,
     @SerializedName("strAwayLineupGoalkeeper")
-    var strAwayLineupGoalkeeper: Any? = null
+    var strAwayLineupGoalkeeper: Any? = null,
     @SerializedName("strAwayLineupMidfield")
-    var strAwayLineupMidfield: Any? = null
+    var strAwayLineupMidfield: Any? = null,
     @SerializedName("strAwayLineupSubstitutes")
-    var strAwayLineupSubstitutes: Any? = null
+    var strAwayLineupSubstitutes: Any? = null,
     @SerializedName("strAwayRedCards")
-    var strAwayRedCards: Any? = null
+    var strAwayRedCards: Any? = null,
     @SerializedName("strAwayTeam")
-    var strAwayTeam: String? = null
+    var strAwayTeam: String? = null,
     @SerializedName("strAwayYellowCards")
-    var strAwayYellowCards: Any? = null
+    var strAwayYellowCards: Any? = null,
     @SerializedName("strBanner")
-    var strBanner: Any? = null
+    var strBanner: Any? = null,
     @SerializedName("strCircuit")
-    var strCircuit: Any? = null
+    var strCircuit: Any? = null,
     @SerializedName("strCity")
-    var strCity: Any? = null
+    var strCity: Any? = null,
     @SerializedName("strCountry")
-    var strCountry: Any? = null
+    var strCountry: Any? = null,
     @SerializedName("strDate")
-    var strDate: String? = null
+    var strDate: String? = null,
     @SerializedName("strDescriptionEN")
-    var strDescriptionEN: Any? = null
+    var strDescriptionEN: Any? = null,
     @SerializedName("strEvent")
-    var strEvent: String? = null
+    var strEvent: String? = null,
     @SerializedName("strFanart")
-    var strFanart: Any? = null
+    var strFanart: Any? = null,
     @SerializedName("strFilename")
-    var strFilename: String? = null
+    var strFilename: String? = null,
     @SerializedName("strHomeFormation")
-    var strHomeFormation: Any? = null
+    var strHomeFormation: Any? = null,
     @SerializedName("strHomeGoalDetails")
-    var strHomeGoalDetails: Any? = null
+    var strHomeGoalDetails: Any? = null,
     @SerializedName("strHomeLineupDefense")
-    var strHomeLineupDefense: Any? = null
+    var strHomeLineupDefense: Any? = null,
     @SerializedName("strHomeLineupForward")
-    var strHomeLineupForward: Any? = null
+    var strHomeLineupForward: Any? = null,
     @SerializedName("strHomeLineupGoalkeeper")
-    var strHomeLineupGoalkeeper: Any? = null
+    var strHomeLineupGoalkeeper: Any? = null,
     @SerializedName("strHomeLineupMidfield")
-    var strHomeLineupMidfield: Any? = null
+    var strHomeLineupMidfield: Any? = null,
     @SerializedName("strHomeLineupSubstitutes")
-    var strHomeLineupSubstitutes: Any? = null
+    var strHomeLineupSubstitutes: Any? = null,
     @SerializedName("strHomeRedCards")
-    var strHomeRedCards: Any? = null
+    var strHomeRedCards: Any? = null,
     @SerializedName("strHomeTeam")
-    var strHomeTeam: String? = null
+    var strHomeTeam: String? = null,
     @SerializedName("strHomeYellowCards")
-    var strHomeYellowCards: Any? = null
+    var strHomeYellowCards: Any? = null,
     @SerializedName("strLeague")
-    var strLeague: String? = null
+    var strLeague: String? = null,
     @SerializedName("strLocked")
-    var strLocked: String? = null
+    var strLocked: String? = null,
     @SerializedName("strMap")
-    var strMap: Any? = null
+    var strMap: Any? = null,
     @SerializedName("strPoster")
-    var strPoster: Any? = null
+    var strPoster: Any? = null,
     @SerializedName("strResult")
-    var strResult: Any? = null
+    var strResult: Any? = null,
     @SerializedName("strSeason")
-    var strSeason: String? = null
+    var strSeason: String? = null,
     @SerializedName("strSport")
-    var strSport: String? = null
+    var strSport: String? = null,
     @SerializedName("strTVStation")
-    var strTVStation: Any? = null
+    var strTVStation: Any? = null,
     @SerializedName("strThumb")
-    var strThumb: Any? = null
+    var strThumb: Any? = null,
     @SerializedName("strTime")
     var strTime: String? = null
 
-}
+)

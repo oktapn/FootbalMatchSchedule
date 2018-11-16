@@ -4,9 +4,7 @@ import javax.annotation.Generated
 import com.google.gson.annotations.SerializedName
 
 @Generated("net.hexar.json2pojo")
-class DetailEventResponse {
-
+class DetailEventResponse(
     @SerializedName("events")
-    var events: List<Event>? = null
-
-}
+    val events: List<Event>
+)
