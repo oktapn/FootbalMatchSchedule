@@ -77,6 +77,7 @@ class FavoriteEventsFragment : Fragment(), AnkoComponent<Context> {
                 )
 
                 listTeam = recyclerView {
+                    id = R.id.list_team
                     lparams(width = matchParent, height = wrapContent)
                     layoutManager = LinearLayoutManager(ctx)
                 }

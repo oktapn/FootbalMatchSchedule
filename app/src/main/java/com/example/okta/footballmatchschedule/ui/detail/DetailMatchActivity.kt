@@ -159,8 +159,8 @@ class DetailMatchActivity : BaseApp(), DetailMatchView {
         forwardAway.text = detailEventResponse.events[0].strAwayLineupForward?.toString() ?: ""
         subtitutesHome.text = detailEventResponse.events[0].strHomeLineupSubstitutes?.toString() ?: ""
         subtitutesAway.text = detailEventResponse.events[0].strAwayLineupSubstitutes?.toString() ?: ""
-        presenter.getDetailTeamHome(detailEventResponse.events?.get(0)?.strHomeTeam ?: "")
-        presenter.getDetailTeamAway(detailEventResponse.events?.get(0)?.strAwayTeam ?: "")
+        presenter.getDetailTeamHome(detailEventResponse.events.get(0).strHomeTeam ?: "")
+        presenter.getDetailTeamAway(detailEventResponse.events.get(0).strAwayTeam ?: "")
         teams = Event(
             detailEventResponse.events[0].dateEvent,
             detailEventResponse.events[0].idAwayTeam,

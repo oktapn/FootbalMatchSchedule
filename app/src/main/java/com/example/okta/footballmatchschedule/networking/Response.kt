@@ -7,7 +7,7 @@ class Response {
     @SerializedName("status")
     var status: String? = null
 
-    constructor() {}
+    constructor()
 
     constructor(status: String) {
         this.status = status
