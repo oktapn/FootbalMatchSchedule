@@ -1,4 +1,4 @@
-package com.example.okta.footballmatchschedule.ui.favorites
+package com.example.okta.footballmatchschedule.ui.favoritesevent
 
 import android.content.Context
 import android.os.Bundle
@@ -9,11 +9,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.okta.applicationkade.database.Favorite
+import com.example.okta.applicationkade.database.FavoriteMatches
 import com.example.okta.applicationkade.database.database
 import com.example.okta.footballmatchschedule.R
 import com.example.okta.footballmatchschedule.adapter.RVAdapterFavoritesEvents
-import com.example.okta.footballmatchschedule.ui.detail.DetailMatchActivity
+import com.example.okta.footballmatchschedule.ui.detailmatch.DetailMatchActivity
 import org.jetbrains.anko.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
@@ -23,7 +23,7 @@ import org.jetbrains.anko.support.v4.swipeRefreshLayout
 
 class FavoriteEventsFragment : Fragment(), AnkoComponent<Context> {
 
-    private var favorites: MutableList<Favorite> = mutableListOf()
+    private var favoriteMatches: MutableList<FavoriteMatches> = mutableListOf()
     private lateinit var adapter: RVAdapterFavoritesEvents
     private lateinit var listTeam: RecyclerView
     private lateinit var swipeRefresh: SwipeRefreshLayout
@@ -31,7 +31,7 @@ class FavoriteEventsFragment : Fragment(), AnkoComponent<Context> {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        adapter = RVAdapterFavoritesEvents(context, favorites) {
+        adapter = RVAdapterFavoritesEvents(context, favoriteMatches) {
             context?.startActivity<DetailMatchActivity>("idevent" to "${it?.matchId}")
         }
 
@@ -47,12 +47,12 @@ class FavoriteEventsFragment : Fragment(), AnkoComponent<Context> {
     }
 
     private fun showFavorite() {
-        favorites.clear()
+        favoriteMatches.clear()
         context?.database?.use {
             swipeRefresh.isRefreshing = false
-            val result = select(Favorite.TABLE_FAVORITE)
-            val favorite = result.parseList(classParser<Favorite>())
-            favorites.addAll(favorite)
+            val result = select(FavoriteMatches.TABLE_FAVORITE)
+            val favorite = result.parseList(classParser<FavoriteMatches>())
+            favoriteMatches.addAll(favorite)
             adapter.notifyDataSetChanged()
         }
     }

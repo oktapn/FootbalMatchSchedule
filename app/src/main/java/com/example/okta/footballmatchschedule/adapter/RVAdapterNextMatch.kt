@@ -25,6 +25,7 @@ class RVAdapterNextMatch(private val context: Context?, private val items: List<
 
         fun bindItem(items: Event?, listener: (Event?) -> Unit) {
             itemView.TVvs.text = "VS"
+            itemView.IcAlarm.visibility = View.VISIBLE
             itemView.TVtglitem.text = items?.dateEvent ?: ""
             itemView.name2.text = items?.strAwayTeam ?: ""
             itemView.score2.text = items?.intAwayScore as CharSequence?

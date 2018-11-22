@@ -1,8 +1,6 @@
 package com.example.okta.footballmatchschedule.ui.nextleague
 
-import com.example.okta.footballmatchschedule.model.detailteam.DetailTeamResponse
 import com.example.okta.footballmatchschedule.model.eventnextleague.EventNextLeagueResponse
-import com.example.okta.footballmatchschedule.model.eventpastleague.Event
 import com.example.okta.footballmatchschedule.networking.NetworkError
 import com.example.okta.footballmatchschedule.networking.Service
 import kotlinx.coroutines.GlobalScope
@@ -49,7 +47,7 @@ class NextMatchFragmentPresenterTest {
                     }
                 })
             ).thenReturn(subscriptions)
-            presenter.getid(league)
+            presenter.getNextMatch(league)
             Mockito.verify(view).showWait()
         }
     }

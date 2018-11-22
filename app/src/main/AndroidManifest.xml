@@ -14,13 +14,17 @@
 		    android:theme="@style/AppTheme"
 		    tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".ui.main.MainActivity"/>
-        <activity android:name=".ui.detail.DetailMatchActivity"/>
+        <activity android:name=".ui.detailmatch.DetailMatchActivity"/>
         <activity android:name=".ui.home.HomeActivity">
-	        <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.matches.MatchesFragment">
+        </activity>
+        <activity android:name=".ui.detailteam.TeamDetailActivity">
         </activity>
     </application>
 

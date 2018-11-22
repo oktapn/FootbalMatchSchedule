@@ -5,15 +5,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.okta.applicationkade.database.Favorite
+import com.example.okta.applicationkade.database.FavoriteMatches
 import com.example.okta.footballmatchschedule.R
-import com.example.okta.footballmatchschedule.model.detailevent.Event
 import kotlinx.android.synthetic.main.item_list.view.*
 
 class RVAdapterFavoritesEvents(
     private val context: Context?,
-    private val items: List<Favorite>?,
-    private val listener: (Favorite?) -> Unit
+    private val items: List<FavoriteMatches>?,
+    private val listener: (FavoriteMatches?) -> Unit
 ) : RecyclerView.Adapter<RVAdapterFavoritesEvents.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -27,7 +26,7 @@ class RVAdapterFavoritesEvents(
 
     class ViewHolder(val containerView: View) : RecyclerView.ViewHolder(containerView) {
 
-        fun bindItem(items: Favorite?, listener: (Favorite?) -> Unit) = with(containerView) {
+        fun bindItem(items: FavoriteMatches?, listener: (FavoriteMatches?) -> Unit) = with(containerView) {
             itemView.TVvs.text = "VS"
             if (items != null) {
                 itemView.TVtglitem.text = items.matchDate

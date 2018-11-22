@@ -2,10 +2,11 @@ package com.example.okta.footballmatchschedule.deps
 
 
 import com.example.okta.footballmatchschedule.networking.NetworkModule
-import com.example.okta.footballmatchschedule.ui.detail.DetailMatchActivity
+import com.example.okta.footballmatchschedule.ui.detailmatch.DetailMatchActivity
 import com.example.okta.footballmatchschedule.ui.main.MainActivity
 import com.example.okta.footballmatchschedule.ui.nextleague.NextMatchFragment
 import com.example.okta.footballmatchschedule.ui.lastleague.LastMatchFragment
+import com.example.okta.footballmatchschedule.ui.teams.TeamsFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -24,4 +25,6 @@ interface Deps {
     fun inject(nextmatchFragment: NextMatchFragment)
 
     fun inject(lastmatchFragment: LastMatchFragment)
+
+    fun inject(teamsFragment: TeamsFragment)
 }

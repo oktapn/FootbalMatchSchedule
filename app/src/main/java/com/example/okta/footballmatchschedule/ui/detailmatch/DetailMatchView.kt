@@ -1,8 +1,7 @@
-package com.example.okta.footballmatchschedule.ui.detail
+package com.example.okta.footballmatchschedule.ui.detailmatch
 
 import com.example.okta.footballmatchschedule.model.detailevent.DetailEventResponse
 import com.example.okta.footballmatchschedule.model.detailteam.DetailTeamResponse
-import com.example.okta.footballmatchschedule.model.eventnextleague.EventNextLeagueResponse
 
 interface DetailMatchView {
     fun showWait()

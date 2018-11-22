@@ -1,4 +1,4 @@
-package com.example.okta.footballmatchschedule.ui.detail
+package com.example.okta.footballmatchschedule.ui.detailmatch
 
 import android.app.ProgressDialog
 import android.database.sqlite.SQLiteConstraintException
@@ -9,7 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.example.okta.applicationkade.database.Favorite
+import com.example.okta.applicationkade.database.FavoriteMatches
 import com.example.okta.applicationkade.database.database
 import org.jetbrains.anko.db.insert
 
@@ -72,12 +72,12 @@ class DetailMatchActivity : BaseApp(), DetailMatchView {
 
     private fun favoriteState() {
         database.use {
-            val result = select(Favorite.TABLE_FAVORITE)
+            val result = select(FavoriteMatches.TABLE_FAVORITE)
                 .whereArgs(
                     "(MATCH_ID = {id})",
                     "id" to id
                 )
-            val favorite = result.parseList(classParser<Favorite>())
+            val favorite = result.parseList(classParser<FavoriteMatches>())
             if (!favorite.isEmpty()) isFavorite = true
         }
     }
@@ -106,13 +106,13 @@ class DetailMatchActivity : BaseApp(), DetailMatchView {
         try {
             database.use {
                 insert(
-                    Favorite.TABLE_FAVORITE,
-                    Favorite.MATCH_ID to teams.idEvent,
-                    Favorite.MATCH_DATE to teams.dateEvent,
-                    Favorite.TEAM_SCORE_HOME to teams.intHomeScore,
-                    Favorite.TEAM_NAME_HOME to teams.strHomeTeam,
-                    Favorite.TEAM_SCORE_AWAY to teams.intAwayScore,
-                    Favorite.TEAM_NAME_AWAY to teams.strAwayTeam
+                    FavoriteMatches.TABLE_FAVORITE,
+                    FavoriteMatches.MATCH_ID to teams.idEvent,
+                    FavoriteMatches.MATCH_DATE to teams.dateEvent,
+                    FavoriteMatches.TEAM_SCORE_HOME to teams.intHomeScore,
+                    FavoriteMatches.TEAM_NAME_HOME to teams.strHomeTeam,
+                    FavoriteMatches.TEAM_SCORE_AWAY to teams.intAwayScore,
+                    FavoriteMatches.TEAM_NAME_AWAY to teams.strAwayTeam
                 )
             }
             swipeRefresh.snackbar("Added to favorite").show()
@@ -124,7 +124,7 @@ class DetailMatchActivity : BaseApp(), DetailMatchView {
     private fun removeFromFavorite() {
         try {
             database.use {
-                delete(Favorite.TABLE_FAVORITE, "(MATCH_ID = {id})", "id" to id)
+                delete(FavoriteMatches.TABLE_FAVORITE, "(MATCH_ID = {id})", "id" to id)
             }
             swipeRefresh.snackbar("Removed to favorite").show()
         } catch (e: SQLiteConstraintException) {

@@ -10,7 +10,7 @@ class LastMatchFragmentPresenter(private val service : Service, private val view
 
     private val subscriptions= CompositeSubscription()
 
-    fun getid(id: String){
+    fun getLastMatch(id: String){
         view.showWait()
 
         val subscription = service.getLastMatch(id, object : Service.GetPastEventCallback {

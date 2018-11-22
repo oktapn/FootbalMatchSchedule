@@ -1,21 +1,22 @@
-package com.example.okta.footballmatchschedule.ui.nextleague
+package com.example.okta.footballmatchschedule.ui.teams
 
-import com.example.okta.footballmatchschedule.model.eventnextleague.EventNextLeagueResponse
+import com.example.okta.applicationkade.model.TeamResponse
 import com.example.okta.footballmatchschedule.networking.NetworkError
 import com.example.okta.footballmatchschedule.networking.Service
+import com.example.okta.footballmatchschedule.ui.nextleague.NextMatchFragmentView
 import rx.subscriptions.CompositeSubscription
 
-class NextMatchFragmentPresenter(private val service : Service, private val view: NextMatchFragmentView) {
+class TeamsPresenter(private val service : Service, private val view: TeamsView) {
 
     private val subscriptions= CompositeSubscription()
 
-    fun getNextMatch(id: String){
+    fun getTeam(league: String){
         view.showWait()
 
-        val subscription = service.getNextMatch(id, object : Service.GetNextEventCallback {
-            override fun onSuccess(responseLogin: EventNextLeagueResponse) {
+        val subscription = service.getTeamData(league, object : Service.GetTeamDataCallback {
+            override fun onSuccess(teamResponse: TeamResponse) {
                 view.removeWait()
-                view.getResponse(responseLogin)
+                view.getResponse(teamResponse)
             }
 
             override fun onError(networkError: NetworkError) {

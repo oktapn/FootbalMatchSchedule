@@ -2,6 +2,7 @@ package com.example.okta.applicationkade.database
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import com.example.okta.footballmatchschedule.database.FavoriteTeam
 import org.jetbrains.anko.db.*
 
 class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "FavoriteTeam.db", null, 1) {
@@ -20,20 +21,26 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "Favorit
     override fun onCreate(db: SQLiteDatabase) {
         // Here you create tables
         db.createTable(
-            Favorite.TABLE_FAVORITE, true,
-            Favorite.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
-            Favorite.MATCH_ID to TEXT + UNIQUE,
-            Favorite.MATCH_DATE to TEXT,
-            Favorite.TEAM_NAME_AWAY to TEXT,
-            Favorite.TEAM_SCORE_AWAY to TEXT,
-            Favorite.TEAM_NAME_HOME to TEXT,
-            Favorite.TEAM_SCORE_HOME to TEXT
+            FavoriteMatches.TABLE_FAVORITE, true,
+            FavoriteMatches.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+            FavoriteMatches.MATCH_ID to TEXT + UNIQUE,
+            FavoriteMatches.MATCH_DATE to TEXT,
+            FavoriteMatches.TEAM_NAME_AWAY to TEXT,
+            FavoriteMatches.TEAM_SCORE_AWAY to TEXT,
+            FavoriteMatches.TEAM_NAME_HOME to TEXT,
+            FavoriteMatches.TEAM_SCORE_HOME to TEXT
         )
+        db.createTable(FavoriteTeam.TABLE_FAVORITE_TEAM, true,
+            FavoriteTeam.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+            FavoriteTeam.TEAM_ID to TEXT + UNIQUE,
+            FavoriteTeam.TEAM_NAME to TEXT,
+            FavoriteTeam.TEAM_BADGE to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         // Here you can upgrade tables, as usual
-        db.dropTable(Favorite.TABLE_FAVORITE, true)
+        db.dropTable(FavoriteMatches.TABLE_FAVORITE, true)
+        db.dropTable(FavoriteTeam.TABLE_FAVORITE_TEAM, true)
     }
 }
 

@@ -4,9 +4,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.okta.footballmatchschedule.R
 import com.example.okta.footballmatchschedule.R.id.*
-import com.example.okta.footballmatchschedule.ui.favorites.FavoriteEventsFragment
-import com.example.okta.footballmatchschedule.ui.lastleague.LastMatchFragment
-import com.example.okta.footballmatchschedule.ui.nextleague.NextMatchFragment
+import com.example.okta.footballmatchschedule.ui.favorites.FavoritesFragment
+import com.example.okta.footballmatchschedule.ui.favoritesevent.FavoriteEventsFragment
+import com.example.okta.footballmatchschedule.ui.matches.MatchesFragment
+import com.example.okta.footballmatchschedule.ui.teams.TeamsFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -16,11 +17,11 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                pastleague -> {
-                    loadPastLeagueFragment(savedInstanceState)
+                matches -> {
+                    loadMatchesFragment(savedInstanceState)
                 }
-                nextleague -> {
-                    loadNextLeagueFragment(savedInstanceState)
+                teams -> {
+                    loadTeamsFragment(savedInstanceState)
                 }
                 favorites -> {
                     loadFavoritesFragment(savedInstanceState)
@@ -28,23 +29,23 @@ class HomeActivity : AppCompatActivity() {
             }
             true
         }
-        bottom_navigation.selectedItemId = pastleague
+        bottom_navigation.selectedItemId = matches
     }
 
-    private fun loadPastLeagueFragment(savedInstanceState: Bundle?) {
+    private fun loadMatchesFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.main_container, LastMatchFragment(), LastMatchFragment::class.java.simpleName)
+                .replace(R.id.main_container, MatchesFragment(), MatchesFragment::class.java.simpleName)
                 .commit()
         }
     }
 
-    private fun loadNextLeagueFragment(savedInstanceState: Bundle?) {
+    private fun loadTeamsFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.main_container, NextMatchFragment(), NextMatchFragment::class.java.simpleName)
+                .replace(R.id.main_container, TeamsFragment(), TeamsFragment::class.java.simpleName)
                 .commit()
         }
     }
@@ -53,7 +54,7 @@ class HomeActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.main_container, FavoriteEventsFragment(), FavoriteEventsFragment::class.java.simpleName)
+                .replace(R.id.main_container, FavoritesFragment(), FavoritesFragment::class.java.simpleName)
                 .commit()
         }
     }

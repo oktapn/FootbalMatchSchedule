@@ -59,7 +59,7 @@ class HomeActivityTest {
 
         onView(withId(bottom_navigation))
             .check(matches(isDisplayed()))
-        onView(withId(nextleague)).perform(click())
+        onView(withId(teams)).perform(click())
 
         Thread.sleep(4000)
         onView(withId(RVnext))

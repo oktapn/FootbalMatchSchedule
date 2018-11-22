@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Football Match Schedule</string>
+    <string name="app_name">Football App</string>
 	<string name="vs_text">VS</string>
 	<string name="goals_text">Goals</string>
 	<string name="todo">TODO</string>
@@ -10,7 +10,18 @@
 	<string name="midfield_title">Midfield</string>
 	<string name="forward_text">Forward</string>
 	<string name="subtitutes_text">Subtitutes</string>
+	<string name="matches">Matches</string>
+	<string name="teams">Teams</string>
 	<string name="pastleague">Past League</string>
 	<string name="nextleague">Next League</string>
 	<string name="favorites">Favorites</string>
+	
+	<array name="league">
+        <item>English Premier League</item>
+        <item>English League Championship</item>
+        <item>German Bundesliga</item>
+        <item>Italian Serie A</item>
+        <item>French Ligue 1</item>
+        <item>Spanish La Liga</item>
+    </array>
 </resources>

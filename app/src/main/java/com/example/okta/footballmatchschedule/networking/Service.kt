@@ -1,5 +1,6 @@
 package com.example.okta.footballmatchschedule.networking
 
+import com.example.okta.applicationkade.model.TeamResponse
 import com.example.okta.footballmatchschedule.model.detailevent.DetailEventResponse
 import com.example.okta.footballmatchschedule.model.detailteam.DetailTeamResponse
 import com.example.okta.footballmatchschedule.model.eventnextleague.EventNextLeagueResponse
@@ -16,22 +17,22 @@ class Service(private val networkService: NetworkService) {
 
     fun getLastMatch(id: String, getPastEventCallback: GetPastEventCallback): Subscription {
         return networkService.getLastMatch(id)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .onErrorResumeNext { throwable -> Observable.error(throwable) }
-                .subscribe(object : Subscriber<EventPastLeagueResponse>() {
-                    override fun onCompleted() {
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .onErrorResumeNext { throwable -> Observable.error(throwable) }
+            .subscribe(object : Subscriber<EventPastLeagueResponse>() {
+                override fun onCompleted() {
 
-                    }
+                }
 
-                    override fun onError(e: Throwable) {
-                        getPastEventCallback.onError(NetworkError(e))
-                    }
+                override fun onError(e: Throwable) {
+                    getPastEventCallback.onError(NetworkError(e))
+                }
 
-                    override fun onNext(responseBarcode: EventPastLeagueResponse) {
-                        getPastEventCallback.onSuccess(responseBarcode)
-                    }
-                })
+                override fun onNext(responseBarcode: EventPastLeagueResponse) {
+                    getPastEventCallback.onSuccess(responseBarcode)
+                }
+            })
     }
 
     interface GetPastEventCallback {
@@ -114,6 +115,33 @@ class Service(private val networkService: NetworkService) {
 
     interface GetDetailEventCallback {
         fun onSuccess(detailEventResponse: DetailEventResponse)
+
+        fun onError(networkError: NetworkError)
+    }
+
+    fun getTeamData(league: String, getTeamDataCallback: GetTeamDataCallback): Subscription {
+        return networkService.getTeam(league)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .onErrorResumeNext { throwable -> Observable.error(throwable) }
+            .subscribe(object : Subscriber<TeamResponse>() {
+                override fun onCompleted() {
+
+                }
+
+                override fun onError(e: Throwable) {
+                    getTeamDataCallback.onError(NetworkError(e))
+                }
+
+                override fun onNext(teamResponse: TeamResponse) {
+                    getTeamDataCallback.onSuccess(teamResponse)
+                }
+            })
+
+    }
+
+    interface GetTeamDataCallback {
+        fun onSuccess(teamResponse: TeamResponse)
 
         fun onError(networkError: NetworkError)
     }
