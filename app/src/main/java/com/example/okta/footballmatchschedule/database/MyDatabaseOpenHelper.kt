@@ -21,7 +21,7 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "Favorit
     override fun onCreate(db: SQLiteDatabase) {
         // Here you create tables
         db.createTable(
-            FavoriteMatches.TABLE_FAVORITE, true,
+            FavoriteMatches.TABLE_FAVORITE_MATCH, true,
             FavoriteMatches.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
             FavoriteMatches.MATCH_ID to TEXT + UNIQUE,
             FavoriteMatches.MATCH_DATE to TEXT,
@@ -39,7 +39,7 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "Favorit
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         // Here you can upgrade tables, as usual
-        db.dropTable(FavoriteMatches.TABLE_FAVORITE, true)
+        db.dropTable(FavoriteMatches.TABLE_FAVORITE_MATCH, true)
         db.dropTable(FavoriteTeam.TABLE_FAVORITE_TEAM, true)
     }
 }

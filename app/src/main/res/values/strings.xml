@@ -14,7 +14,7 @@
 	<string name="teams">Teams</string>
 	<string name="pastleague">Past League</string>
 	<string name="nextleague">Next League</string>
-	<string name="favorites">Favorites</string>
+	<string name="favorites">Favorites</string><string name="team_overview">Team Overview</string>
 	
 	<array name="league">
         <item>English Premier League</item>

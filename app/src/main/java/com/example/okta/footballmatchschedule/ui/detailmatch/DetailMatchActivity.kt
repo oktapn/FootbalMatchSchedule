@@ -72,7 +72,7 @@ class DetailMatchActivity : BaseApp(), DetailMatchView {
 
     private fun favoriteState() {
         database.use {
-            val result = select(FavoriteMatches.TABLE_FAVORITE)
+            val result = select(FavoriteMatches.TABLE_FAVORITE_MATCH)
                 .whereArgs(
                     "(MATCH_ID = {id})",
                     "id" to id
@@ -106,7 +106,7 @@ class DetailMatchActivity : BaseApp(), DetailMatchView {
         try {
             database.use {
                 insert(
-                    FavoriteMatches.TABLE_FAVORITE,
+                    FavoriteMatches.TABLE_FAVORITE_MATCH,
                     FavoriteMatches.MATCH_ID to teams.idEvent,
                     FavoriteMatches.MATCH_DATE to teams.dateEvent,
                     FavoriteMatches.TEAM_SCORE_HOME to teams.intHomeScore,
@@ -124,7 +124,7 @@ class DetailMatchActivity : BaseApp(), DetailMatchView {
     private fun removeFromFavorite() {
         try {
             database.use {
-                delete(FavoriteMatches.TABLE_FAVORITE, "(MATCH_ID = {id})", "id" to id)
+                delete(FavoriteMatches.TABLE_FAVORITE_MATCH, "(MATCH_ID = {id})", "id" to id)
             }
             swipeRefresh.snackbar("Removed to favorite").show()
         } catch (e: SQLiteConstraintException) {

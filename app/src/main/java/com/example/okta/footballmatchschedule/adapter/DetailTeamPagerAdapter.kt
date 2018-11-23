@@ -5,17 +5,18 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.example.okta.footballmatchschedule.ui.favoritesevent.FavoriteMatchesFragment
 import com.example.okta.footballmatchschedule.ui.favoritesteam.FavoriteTeamsFragment
-import com.example.okta.footballmatchschedule.ui.nextleague.NextMatchFragment
+import com.example.okta.footballmatchschedule.ui.teamoverview.TeamOverviewFragment
+import com.example.okta.footballmatchschedule.ui.teamplayer.TeamPlayerFragment
 
-class FavoritesPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class DetailTeamPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> {
-                FavoriteMatchesFragment()
+                TeamOverviewFragment()
             }
             else -> {
-                FavoriteTeamsFragment()
+                TeamPlayerFragment()
             }
         }
     }
@@ -26,9 +27,9 @@ class FavoritesPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getPageTitle(position: Int): CharSequence {
         return when (position) {
-            0 -> "Matches"
+            0 -> "Overview"
             else -> {
-                return "Teams"
+                return "Players"
             }
         }
     }

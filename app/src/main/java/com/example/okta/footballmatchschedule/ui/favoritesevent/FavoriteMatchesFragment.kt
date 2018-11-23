@@ -21,7 +21,7 @@ import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.swipeRefreshLayout
 
-class FavoriteEventsFragment : Fragment(), AnkoComponent<Context> {
+class FavoriteMatchesFragment : Fragment(), AnkoComponent<Context> {
 
     private var favoriteMatches: MutableList<FavoriteMatches> = mutableListOf()
     private lateinit var adapter: RVAdapterFavoritesEvents
@@ -50,7 +50,7 @@ class FavoriteEventsFragment : Fragment(), AnkoComponent<Context> {
         favoriteMatches.clear()
         context?.database?.use {
             swipeRefresh.isRefreshing = false
-            val result = select(FavoriteMatches.TABLE_FAVORITE)
+            val result = select(FavoriteMatches.TABLE_FAVORITE_MATCH)
             val favorite = result.parseList(classParser<FavoriteMatches>())
             favoriteMatches.addAll(favorite)
             adapter.notifyDataSetChanged()

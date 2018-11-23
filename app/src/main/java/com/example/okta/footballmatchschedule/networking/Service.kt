@@ -5,6 +5,7 @@ import com.example.okta.footballmatchschedule.model.detailevent.DetailEventRespo
 import com.example.okta.footballmatchschedule.model.detailteam.DetailTeamResponse
 import com.example.okta.footballmatchschedule.model.eventnextleague.EventNextLeagueResponse
 import com.example.okta.footballmatchschedule.model.eventpastleague.EventPastLeagueResponse
+import com.example.okta.footballmatchschedule.model.player.PlayerResponse
 
 import rx.Observable
 import rx.Subscriber
@@ -145,5 +146,60 @@ class Service(private val networkService: NetworkService) {
 
         fun onError(networkError: NetworkError)
     }
+
+    fun getTeamDatabyID(league: String?, getTeamDataByIDCallback: GetTeamDataByIDCallback): Subscription {
+        return networkService.getDetailTeambyID(league)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .onErrorResumeNext { throwable -> Observable.error(throwable) }
+            .subscribe(object : Subscriber<DetailTeamResponse>() {
+                override fun onCompleted() {
+
+                }
+
+                override fun onError(e: Throwable) {
+                    getTeamDataByIDCallback.onError(NetworkError(e))
+                }
+
+                override fun onNext(teamResponse: DetailTeamResponse) {
+                    getTeamDataByIDCallback.onSuccess(teamResponse)
+                }
+            })
+
+    }
+
+    interface GetTeamDataByIDCallback {
+        fun onSuccess(teamResponse: DetailTeamResponse)
+
+        fun onError(networkError: NetworkError)
+    }
+
+    fun getPlayers(id: String?, getPlayersDataByIDCallback: GetPlayersDataByIDCallback): Subscription {
+        return networkService.getPlayersbyTeamID(id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .onErrorResumeNext { throwable -> Observable.error(throwable) }
+            .subscribe(object : Subscriber<PlayerResponse>() {
+                override fun onCompleted() {
+
+                }
+
+                override fun onError(e: Throwable) {
+                    getPlayersDataByIDCallback.onError(NetworkError(e))
+                }
+
+                override fun onNext(playerResponse: PlayerResponse) {
+                    getPlayersDataByIDCallback.onSuccess(playerResponse)
+                }
+            })
+
+    }
+
+    interface GetPlayersDataByIDCallback {
+        fun onSuccess(playerResponse: PlayerResponse)
+
+        fun onError(networkError: NetworkError)
+    }
+
 
 }

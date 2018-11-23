@@ -5,7 +5,6 @@ import android.os.Bundle
 import com.example.okta.footballmatchschedule.R
 import com.example.okta.footballmatchschedule.R.id.*
 import com.example.okta.footballmatchschedule.ui.favorites.FavoritesFragment
-import com.example.okta.footballmatchschedule.ui.favoritesevent.FavoriteEventsFragment
 import com.example.okta.footballmatchschedule.ui.matches.MatchesFragment
 import com.example.okta.footballmatchschedule.ui.teams.TeamsFragment
 import kotlinx.android.synthetic.main.activity_home.*

@@ -43,7 +43,7 @@ class TeamsFragment : BaseAppFragment(), AnkoComponent<Context>, TeamsView{
         deps.inject(this)
         val spinnerItems = resources.getStringArray(league)
         val spinnerAdapter = ArrayAdapter(requireContext(), R.layout.simple_spinner_dropdown_item, spinnerItems)
-        spinner.adapter = spinnerAdapter as SpinnerAdapter?
+        spinner.adapter = spinnerAdapter
         adapter = TeamsAdapter(teams) {
             context?.startActivity<TeamDetailActivity>("id" to "${it.teamId}")
         }
