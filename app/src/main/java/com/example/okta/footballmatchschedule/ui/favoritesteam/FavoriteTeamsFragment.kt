@@ -14,6 +14,7 @@ import com.example.okta.footballmatchschedule.R
 import com.example.okta.footballmatchschedule.adapter.RVAdapterFavoritesTeams
 import com.example.okta.footballmatchschedule.database.FavoriteTeam
 import com.example.okta.footballmatchschedule.ui.detailmatch.DetailMatchActivity
+import com.example.okta.footballmatchschedule.ui.detailteam.TeamDetailActivity
 import org.jetbrains.anko.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
@@ -31,7 +32,7 @@ class FavoriteTeamsFragment: Fragment(), AnkoComponent<Context> {
         super.onActivityCreated(savedInstanceState)
 
         adapter = RVAdapterFavoritesTeams(context, favoriteTeams) {
-            context?.startActivity<DetailMatchActivity>("idevent" to "${it?.teamId}")
+            context?.startActivity<TeamDetailActivity>("id" to "${it?.teamId}")
         }
 
         listTeam.adapter = adapter

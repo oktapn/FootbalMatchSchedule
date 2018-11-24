@@ -6,6 +6,7 @@ import com.example.okta.footballmatchschedule.model.detailteam.DetailTeamRespons
 import com.example.okta.footballmatchschedule.model.eventnextleague.EventNextLeagueResponse
 import com.example.okta.footballmatchschedule.model.eventpastleague.EventPastLeagueResponse
 import com.example.okta.footballmatchschedule.model.player.PlayerResponse
+import com.example.okta.footballmatchschedule.model.playerdetail.PlayerDetailResponse
 
 import rx.Observable
 import rx.Subscriber
@@ -197,6 +198,33 @@ class Service(private val networkService: NetworkService) {
 
     interface GetPlayersDataByIDCallback {
         fun onSuccess(playerResponse: PlayerResponse)
+
+        fun onError(networkError: NetworkError)
+    }
+
+    fun getPlayerDetail(id: String?, getPlayersDetailCallback: GetPlayersDetailCallback): Subscription {
+        return networkService.getPlayerDetail(id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .onErrorResumeNext { throwable -> Observable.error(throwable) }
+            .subscribe(object : Subscriber<PlayerDetailResponse>() {
+                override fun onCompleted() {
+
+                }
+
+                override fun onError(e: Throwable) {
+                    getPlayersDetailCallback.onError(NetworkError(e))
+                }
+
+                override fun onNext(playerDetailResponse: PlayerDetailResponse) {
+                    getPlayersDetailCallback.onSuccess(playerDetailResponse)
+                }
+            })
+
+    }
+
+    interface GetPlayersDetailCallback {
+        fun onSuccess(playerDetailResponse: PlayerDetailResponse)
 
         fun onError(networkError: NetworkError)
     }

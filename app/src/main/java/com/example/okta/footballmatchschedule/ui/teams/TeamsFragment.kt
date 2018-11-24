@@ -52,6 +52,7 @@ class TeamsFragment : BaseAppFragment(), AnkoComponent<Context>, TeamsView{
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 leagueName = spinner.selectedItem.toString()
+                teams.clear()
                 presenter.getTeam(leagueName)
             }
 

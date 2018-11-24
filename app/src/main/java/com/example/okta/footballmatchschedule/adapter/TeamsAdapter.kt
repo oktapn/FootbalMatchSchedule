@@ -12,6 +12,10 @@ import com.example.okta.footballmatchschedule.R
 import com.example.okta.footballmatchschedule.R.id.team_badge
 import com.example.okta.footballmatchschedule.R.id.team_name
 import org.jetbrains.anko.*
+import android.R.attr.data
+import android.text.method.TextKeyListener.clear
+
+
 
 class TeamsAdapter (private val teams: List<Team>, private val listener: (Team) -> Unit) : RecyclerView.Adapter<TeamsAdapter.TeamViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewHolder {

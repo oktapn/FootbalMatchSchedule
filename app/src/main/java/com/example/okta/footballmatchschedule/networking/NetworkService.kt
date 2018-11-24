@@ -6,6 +6,7 @@ import com.example.okta.footballmatchschedule.model.detailteam.DetailTeamRespons
 import com.example.okta.footballmatchschedule.model.eventnextleague.EventNextLeagueResponse
 import com.example.okta.footballmatchschedule.model.eventpastleague.EventPastLeagueResponse
 import com.example.okta.footballmatchschedule.model.player.PlayerResponse
+import com.example.okta.footballmatchschedule.model.playerdetail.PlayerDetailResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 import rx.Observable
@@ -31,4 +32,7 @@ interface NetworkService {
 
     @GET("lookup_all_players.php")
     fun getPlayersbyTeamID(@Query("id")id: String?): Observable<PlayerResponse>
+
+    @GET("lookupplayer.php")
+    fun getPlayerDetail(@Query("id")id: String?): Observable<PlayerDetailResponse>
 }

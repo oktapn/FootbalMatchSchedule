@@ -1,21 +1,21 @@
-package com.example.okta.footballmatchschedule.ui.teamplayer
+package com.example.okta.footballmatchschedule.ui.playerdetail
 
-import com.example.okta.footballmatchschedule.model.player.PlayerResponse
+import com.example.okta.footballmatchschedule.model.playerdetail.PlayerDetailResponse
 import com.example.okta.footballmatchschedule.networking.NetworkError
 import com.example.okta.footballmatchschedule.networking.Service
 import rx.subscriptions.CompositeSubscription
 
-class TeamPlayerPresenter(private val service : Service, private val view: TeamPlayerView) {
+class PlayerDetailPresenter(private val service : Service, private val view: PlayerDetailView) {
 
     private val subscriptions= CompositeSubscription()
 
-    fun getDetailTeamPlayer(id: String?){
+    fun getDetailTeamHome(id: String){
         view.showWait()
 
-        val subscription = service.getPlayers(id, object : Service.GetPlayersDataByIDCallback {
-            override fun onSuccess(playerResponse: PlayerResponse) {
+        val subscription = service.getPlayerDetail(id, object : Service.GetPlayersDetailCallback {
+            override fun onSuccess(playerDetailResponse: PlayerDetailResponse) {
                 view.removeWait()
-                view.getResponse(playerResponse)
+                view.getResponse(playerDetailResponse)
             }
 
             override fun onError(networkError: NetworkError) {

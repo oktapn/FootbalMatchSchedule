@@ -31,6 +31,7 @@ import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.design.snackbar
+import org.jetbrains.anko.toast
 import javax.inject.Inject
 
 class TeamDetailActivity : BaseApp(),TeamDetailView {
@@ -92,7 +93,7 @@ class TeamDetailActivity : BaseApp(),TeamDetailView {
                     "(TEAM_ID = {id})",
                     "id" to id
                 )
-            val favorite = result.parseList(classParser<FavoriteMatches>())
+            val favorite = result.parseList(classParser<FavoriteTeam>())
             if (!favorite.isEmpty()) isFavorite = true
         }
     }
@@ -127,20 +128,20 @@ class TeamDetailActivity : BaseApp(),TeamDetailView {
                     FavoriteTeam.TEAM_BADGE to teams.teamBadge
                 )
             }
-//            swipeRefresh.snackbar("Added to favorite").show()
+            toast("Added to favorite").show()
         } catch (e: SQLiteConstraintException) {
-//            swipeRefresh.snackbar(e.localizedMessage).show()
+           toast(e.localizedMessage).show()
         }
     }
 
     private fun removeFromFavorite() {
         try {
             database.use {
-                delete(FavoriteMatches.TABLE_FAVORITE_MATCH, "(TEAM_ID = {id})", "id" to id)
+                delete(FavoriteTeam.TABLE_FAVORITE_TEAM, "(TEAM_ID = {id})", "id" to id)
             }
-//            swipeRefresh.snackbar("Removed to favorite").show()
+           toast("Removed to favorite").show()
         } catch (e: SQLiteConstraintException) {
-//            swipeRefresh.snackbar(e.localizedMessage).show()
+           toast(e.localizedMessage).show()
         }
     }
 
@@ -171,6 +172,11 @@ class TeamDetailActivity : BaseApp(),TeamDetailView {
         TVTeam1.text = detailTeamResponse.teams?.get(0)?.strTeam
         TVTeam2.text = detailTeamResponse.teams?.get(0)?.intFormedYear.toString()
         TVTeam3.text = detailTeamResponse.teams?.get(0)?.strStadium
+        teams = Team(
+            detailTeamResponse.teams?.get(0)?.idTeam,
+            detailTeamResponse.teams?.get(0)?.strTeam,
+            detailTeamResponse.teams?.get(0)?.strTeamBadge
+        )
     }
 
 }
