@@ -66,6 +66,7 @@ class PlayerDetailActivity : BaseApp(),PlayerDetailView {
         WegPlayer.text = playerDetailResponse.players?.get(0)?.strWeight
         HeigPlayer.text = playerDetailResponse.players?.get(0)?.strHeight
         OverPlayer.text = playerDetailResponse.players?.get(0)?.strDescriptionEN
+        PosPlayer.text = playerDetailResponse.players?.get(0)?.strPosition
     }
 
 

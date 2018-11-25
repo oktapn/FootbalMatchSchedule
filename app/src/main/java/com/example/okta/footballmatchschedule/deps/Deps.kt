@@ -8,6 +8,7 @@ import com.example.okta.footballmatchschedule.ui.main.MainActivity
 import com.example.okta.footballmatchschedule.ui.nextleague.NextMatchFragment
 import com.example.okta.footballmatchschedule.ui.lastleague.LastMatchFragment
 import com.example.okta.footballmatchschedule.ui.playerdetail.PlayerDetailActivity
+import com.example.okta.footballmatchschedule.ui.searchmatch.SearchMatchActivity
 import com.example.okta.footballmatchschedule.ui.teamoverview.TeamOverviewFragment
 import com.example.okta.footballmatchschedule.ui.teamplayer.TeamPlayerFragment
 import com.example.okta.footballmatchschedule.ui.teams.TeamsFragment
@@ -39,4 +40,6 @@ interface Deps {
     fun inject(teamPlayerFragment: TeamPlayerFragment)
 
     fun inject(playerDetailActivity: PlayerDetailActivity)
+
+    fun inject(searchMatchActivity: SearchMatchActivity)
 }

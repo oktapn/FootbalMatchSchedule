@@ -27,9 +27,9 @@ class HomeActivityTest {
         Thread.sleep(4000)
         onView(withId(RVlast))
             .check(matches(isDisplayed()))
-        onView(withId(RVlast)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(10))
+        onView(withId(RVlast)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
         onView(withId(RVlast)).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(10, click())
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click())
         )
 
         Thread.sleep(4000)
@@ -43,10 +43,10 @@ class HomeActivityTest {
             .check(matches(isDisplayed()))
         onView(withId(favorites)).perform(click())
 
-        onView(withId(list_team))
+        onView(withId(list_match))
             .check(matches(isDisplayed()))
-        onView(withId(list_team)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
-        onView(withId(list_team)).perform(
+        onView(withId(list_match)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
+        onView(withId(list_match)).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click())
         )
 
@@ -62,11 +62,46 @@ class HomeActivityTest {
         onView(withId(teams)).perform(click())
 
         Thread.sleep(4000)
-        onView(withId(RVnext))
+        onView(withId(list_team))
             .check(matches(isDisplayed()))
-        onView(withId(RVnext)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(10))
-        onView(withId(RVnext)).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(10, click())
+        onView(withId(list_team)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
+        onView(withId(list_team)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click())
+        )
+
+        Thread.sleep(4000)
+        onView(withText("PLAYERS"))
+            .check(matches(isDisplayed())).perform(click())
+        onView(withId(RVPlayer))
+            .check(matches(isDisplayed()))
+        onView(withId(RVPlayer)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
+        onView(withId(RVPlayer)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click())
+        )
+
+
+        Thread.sleep(4000)
+        pressBack()
+
+
+        onView(withId(add_to_favorite))
+            .check(matches(isDisplayed()))
+        onView(withId(add_to_favorite)).perform(click())
+
+        pressBack()
+
+        onView(withId(bottom_navigation))
+            .check(matches(isDisplayed()))
+        onView(withId(favorites)).perform(click())
+
+        onView(withText("TEAMS"))
+            .check(matches(isDisplayed())).perform(click())
+
+        onView(withId(list_team))
+            .check(matches(isDisplayed()))
+        onView(withId(list_team)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
+        onView(withId(list_team)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click())
         )
 
         Thread.sleep(4000)
@@ -75,6 +110,5 @@ class HomeActivityTest {
         onView(withId(add_to_favorite)).perform(click())
 
         pressBack()
-
     }
 }

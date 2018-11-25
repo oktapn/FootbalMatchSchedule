@@ -7,6 +7,8 @@ import com.example.okta.footballmatchschedule.model.eventnextleague.EventNextLea
 import com.example.okta.footballmatchschedule.model.eventpastleague.EventPastLeagueResponse
 import com.example.okta.footballmatchschedule.model.player.PlayerResponse
 import com.example.okta.footballmatchschedule.model.playerdetail.PlayerDetailResponse
+import com.example.okta.footballmatchschedule.model.searchmatch.SearchMatchResponse
+import com.example.okta.footballmatchschedule.model.teamsearch.TeamSearchResponse
 
 import rx.Observable
 import rx.Subscriber
@@ -225,6 +227,60 @@ class Service(private val networkService: NetworkService) {
 
     interface GetPlayersDetailCallback {
         fun onSuccess(playerDetailResponse: PlayerDetailResponse)
+
+        fun onError(networkError: NetworkError)
+    }
+
+    fun getTeamSearch(t: String?, getTeamSearchCallback: GetTeamSearchCallback): Subscription {
+        return networkService.getTeamSearch(t)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .onErrorResumeNext { throwable -> Observable.error(throwable) }
+            .subscribe(object : Subscriber<TeamSearchResponse>() {
+                override fun onCompleted() {
+
+                }
+
+                override fun onError(e: Throwable) {
+                    getTeamSearchCallback.onError(NetworkError(e))
+                }
+
+                override fun onNext(teamSearchResponse: TeamSearchResponse) {
+                    getTeamSearchCallback.onSuccess(teamSearchResponse)
+                }
+            })
+
+    }
+
+    interface GetTeamSearchCallback {
+        fun onSuccess(teamSearchResponse: TeamSearchResponse)
+
+        fun onError(networkError: NetworkError)
+    }
+
+    fun getMatchSearch(e: String?, getMatchSearchCallback: GetMatchSearchCallback): Subscription {
+        return networkService.getMatchSearch(e)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .onErrorResumeNext { throwable -> Observable.error(throwable) }
+            .subscribe(object : Subscriber<SearchMatchResponse>() {
+                override fun onCompleted() {
+
+                }
+
+                override fun onError(e: Throwable) {
+                    getMatchSearchCallback.onError(NetworkError(e))
+                }
+
+                override fun onNext(searchMatchResponse: SearchMatchResponse) {
+                    getMatchSearchCallback.onSuccess(searchMatchResponse)
+                }
+            })
+
+    }
+
+    interface GetMatchSearchCallback {
+        fun onSuccess(searchMatchResponse: SearchMatchResponse)
 
         fun onError(networkError: NetworkError)
     }

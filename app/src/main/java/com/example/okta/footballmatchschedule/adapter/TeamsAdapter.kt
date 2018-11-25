@@ -12,8 +12,6 @@ import com.example.okta.footballmatchschedule.R
 import com.example.okta.footballmatchschedule.R.id.team_badge
 import com.example.okta.footballmatchschedule.R.id.team_name
 import org.jetbrains.anko.*
-import android.R.attr.data
-import android.text.method.TextKeyListener.clear
 
 
 

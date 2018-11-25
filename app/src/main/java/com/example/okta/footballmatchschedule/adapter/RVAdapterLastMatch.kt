@@ -31,9 +31,9 @@ class RVAdapterLastMatch(
             if (items != null) {
                 itemView.TVtglitem.text = items.dateEvent
                 itemView.name2.text = items.strAwayTeam
-                itemView.score2.text = items.intAwayScore.toString()
+                itemView.score2.text = items.intAwayScore as CharSequence?
                 itemView.name1.text = items.strHomeTeam
-                itemView.score1.text = items.intHomeScore.toString()
+                itemView.score1.text = items.intHomeScore as CharSequence?
                 setOnClickListener { listener(items) }
             }
         }
